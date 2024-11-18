@@ -47,6 +47,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="audio\audio_u.h" />
+    <ClInclude Include="audio\rs4.h" />
+    <ClInclude Include="audio\rtaudio.hpp" />
+    <ClInclude Include="audio\wav_rdr.h" />
+    <ClInclude Include="audio\wav_wri.h" />
     <ClInclude Include="g40\nv2_buffer.h" />
     <ClInclude Include="g40\nv2_mmf.h" />
     <ClInclude Include="g40\nv2_opt.h" />

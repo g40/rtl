@@ -20,6 +20,8 @@ namespace nv2
 	namespace wav
 	{
 		//-----------------------------------------------------------------------------
+		// 
+		//-----------------------------------------------------------------------------
 		// do everything in 1 pass.
 		static
 		nv2::audio::SampleData 
@@ -35,11 +37,16 @@ namespace nv2
 			FILE* fp = nullptr;
 #if _IS_WINDOWS
 			errno_t err = fopen_s(&fp, filename.c_str(), "rb");
+			u::throw_if(err != 0, "wav_rdr: could not open file");
 #else
 			fp = fopen(filename.c_str(), "rb");
+			//
+			u::throw_if(fp == nullptr, "wav_rdr: could not open file");
 #endif
-			if (!fp)
-				return wav_data;
+			
+			// closer for file handle
+			nv2::u::FILECloser fc(fp);
+
 			do
 			{
 				size_t read = fread(&m_wrh, 1, sizeof(m_wrh), fp);
@@ -103,8 +110,6 @@ namespace nv2
 				//
 			} while (0);
 			//
-			fclose(fp);
-			//
 			return wav_data;
 		}
 
@@ -134,13 +139,15 @@ namespace nv2
 			FILE* fp = nullptr;
 #if _IS_WINDOWS
 			errno_t err = fopen_s(&fp, filename.c_str(), "rb");
-			if (!fp)
-				return 0;
+			u::throw_if(err != 0, "wav_rdr: could not open file");
 #else
 			fp = fopen(filename.c_str(), "rb");
-			if (!fp)
-				return 0;
+			//
+			u::throw_if(fp == nullptr, "wav_rdr: could not open file");
 #endif
+			// closer for file handle
+			nv2::u::FILECloser fc(fp);
+
 			do
 			{
 				size_t read = fread(&m_wrh, 1, sizeof(m_wrh), fp);
@@ -191,8 +198,6 @@ namespace nv2
 				}
 				//
 			} while (0);
-			//
-			fclose(fp);
 			//
 			return totalRead;
 		}

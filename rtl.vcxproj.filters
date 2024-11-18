@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="audio\audio_u.h">
+      <Filter>audio</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\rtaudio.hpp">
+      <Filter>audio</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\wav_rdr.h">
+      <Filter>audio</Filter>
+    </ClInclude>
+    <ClInclude Include="g40\nv2_w32.h">
+      <Filter>g40</Filter>
+    </ClInclude>
+    <ClInclude Include="g40\nv2_util.h">
+      <Filter>g40</Filter>
+    </ClInclude>
+    <ClInclude Include="g40\nv2_sig.h">
+      <Filter>g40</Filter>
+    </ClInclude>
+    <ClInclude Include="g40\nv2_opt.h">
+      <Filter>g40</Filter>
+    </ClInclude>
+    <ClInclude Include="g40\nv2_mmf.h">
+      <Filter>g40</Filter>
+    </ClInclude>
+    <ClInclude Include="g40\nv2_buffer.h">
+      <Filter>g40</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\wav_wri.h">
+      <Filter>audio</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\rs4.h">
+      <Filter>audio</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="audio">
+      <UniqueIdentifier>{2ecf718b-c969-4780-8b38-0909f1e47317}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="g40">
+      <UniqueIdentifier>{fa8db137-a13f-4c33-93d9-3d898ea19f84}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

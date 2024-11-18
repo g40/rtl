@@ -81,6 +81,20 @@ namespace nv2
 		}
 
 		//-----------------------------------------------------------------------------
+		// ensure FILE* is closed.
+		class FILECloser {
+			FILE* _fp = nullptr;
+		public: 
+			FILECloser(FILE* fp) : _fp(fp) {}
+			~FILECloser() {
+				if (_fp) {
+					fclose(_fp);
+					_fp = nullptr;
+				}
+			}
+		};
+
+		//-----------------------------------------------------------------------------
 		static constexpr float ratio = (1.0f / 32767.0f);
 		//-----------------------------------------------------------------------------
 		// short to float
